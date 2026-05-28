@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.designliquido.delegua</id>
+    <name>Delegua</name>
+    <vendor email="leonel@designliquido.com.br" url="https://designliquido.com.br">Design Líquido</vendor>
+    <description><![CDATA[
+        Suporte à linguagem de programação <b>Delégua</b> nos produtos JetBrains.<br/>
+        Funcionalidades:
+        <ul>
+            <li>Reconhecimento de arquivos <code>.delegua</code></li>
+            <li>Realce de sintaxe (palavras-chave, strings, números, comentários)</li>
+            <li>Análise léxica e sintática via ANTLR4</li>
+        </ul>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <fileType
+            name="Delegua"
+            implementationClass="com.designliquido.delegua.DeleguaFileType"
+            fieldName="INSTANCE"
+            language="Delegua"
+            extensions="delegua"/>
+
+        <lang.parserDefinition
+            language="Delegua"
+            implementationClass="com.designliquido.delegua.parser.DeleguaParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory
+            language="Delegua"
+            implementationClass="com.designliquido.delegua.highlighting.DeleguaSyntaxHighlighterFactory"/>
+
+    </extensions>
+
+</idea-plugin>
